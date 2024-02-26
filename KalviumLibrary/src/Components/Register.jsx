@@ -61,7 +61,7 @@ function Register(){
 
         // if everything is okay setSuccess to true
         setSuccess(true);
-        // console.log("Scccessful", formData)
+        console.log("Scccessful", formData)
 
     }
 
