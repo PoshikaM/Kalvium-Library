@@ -27,6 +27,7 @@ function Register(){
         setFormData({ ...formData , [name] : value});
 
         setError({ ...error, [name] : "" })
+        setSuccess(false)
     }
 
     // to handle the submit event and check if everything is correct
