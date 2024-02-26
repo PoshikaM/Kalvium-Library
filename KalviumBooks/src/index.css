@@ -1,0 +1,177 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(248, 255, 211);
+}
+
+/* For Navbar Page */
+.Navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+}
+
+.flex img{
+  width: 50px;
+  height: 50px;
+}
+
+.Register{
+  background-color: white;
+  color: red;
+  width: 120px;
+  padding: 7px;
+  font-weight: 600;
+  border: 3px solid black;
+}
+/* For Navbar Page */
+
+/* For Main Page */
+.Search{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.Search input{
+  width: 400px;
+  height: 25px;
+  text-align: center;
+  box-shadow: 2px 2px 8px #888888;
+  margin-top: 30px;
+}
+
+.searched{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.searched img{
+  height: 150px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  row-gap: 50px;
+}
+
+.content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image{
+  height: 150px;
+}
+/* For Main Page */
+
+/* For Register Page */
+.inputs{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin-top: 50px;
+}
+
+.inputs input{
+  margin-top: 20px;
+  height: 30px;
+  width: 250px;
+}
+
+.field{
+  border: 2px solid rgb(94, 0, 152);
+  padding: 20px;
+}
+
+.success{
+  color:black;
+  text-align: center;
+  background-color: rgb(50, 50, 255);
+  padding: 10px;
+}
+
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn button{
+  padding: 5px 15px;
+  background-color: green;
+}
+/* For Register Page */
+
+/* Responsiveness */
+@media (max-width: 880px){
+  .Search input{
+    width: 250px;
+  }
+}
+
+@media(max-width: 800px){
+  .grid, .searched{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media(max-width: 670px){
+  .Search input{
+    width: 150px;
+  } 
+}
+
+@media(max-width: 600px){
+  .grid, .searched{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  h1{
+    font-size: 23px;
+  }
+}
+
+@media(max-width: 540px){
+  .flex img{
+    width: 40px;
+    height: 40px;
+  }
+  .Register{
+    width: 80px;
+    padding: 5px;
+  }
+}
+
+@media(max-width: 360px){
+  .Search input{
+    box-shadow: 2px 2px 8px #888888
+  }
+  .grid{
+    margin-top: 20px;
+  }
+  .Navbar{
+    padding: 5px;
+  }
+}
