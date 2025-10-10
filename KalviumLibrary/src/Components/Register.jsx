@@ -1,127 +1,106 @@
 import { useState } from "react";
 
-function Register(){
+function Register() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    repeatPassword: "",
+  });
 
-    // assigning needed items
-    const [formData, setFormData] = useState({
-        name : '',
-        email : '',
-        password : '',
-        repeatPassword : ''
-    })
+  const [error, setError] = useState({});
+  const [success, setSuccess] = useState(false);
 
-    // to show if there is error
-    const [error, setError] = useState({
-        name : '',
-        email : '',
-        password : '',
-        repeatPassword : ''
-    })
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    setError({ ...error, [name]: "" });
+    setSuccess(false);
+  };
 
-    // to show success at the end
-    const [success, setSuccess] = useState(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, password, repeatPassword } = formData;
 
-    // to handle the changes based on the name and value for every input field and show error or setData accordingly
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        setFormData({ ...formData , [name] : value});
-
-        setError({ ...error, [name] : "" })
-        setSuccess(false)
+    if (name.length < 3 || name.length > 30) {
+      setError({ ...error, name: "Name should be between 3 and 30 characters" });
+      return;
     }
 
-    // to handle the submit event and check if everything is correct
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        const {name, email, password, repeatPassword} = formData;
-
-        // check conditions for name
-        if(name.length < 3 || name.length > 30){
-            setError({ ...error , name : 'Name should be between 3 and 30 characters'})
-            return;
-        }
-
-        // check conditions for email
-        if(!email.includes('@')){
-            setError({ ...error , email : "Invalid Email"})
-            return;
-        }
-
-        // check conditions for password
-        if(password.length != 10 || !/[!@#$%^&*(),.?":{}|<>]/.test(password)){
-            setError({ ...error , password : 'Password must contain 10 characters with 1 special character'})
-            return;
-        }
-
-        // check conditions for repeat password
-        if(repeatPassword !== password){
-            setError({ ...error , repeatPassword : 'Password does not match !'})
-            return;
-        }
-
-        // if everything is okay setSuccess to true
-        setSuccess(true);
-        console.log("Scccessful", formData)
-
+    if (!email.includes("@")) {
+      setError({ ...error, email: "Invalid Email" });
+      return;
     }
 
-    return(
-        <form onSubmit={handleSubmit}>
+    if (password.length !== 10 || !/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      setError({
+        ...error,
+        password: "Password must be 10 chars with 1 special character",
+      });
+      return;
+    }
 
-        <div className="inputs">
+    if (repeatPassword !== password) {
+      setError({ ...error, repeatPassword: "Passwords do not match!" });
+      return;
+    }
 
-            {/* name input field */}
-            <div className="field">
-            {success && <p className="success">Registration Successful !</p>}
-            <input 
-            type="text" 
-            name="name"
-            placeholder="Your name"
-            value={formData.name}
-            onChange={handleChange} 
-            required />
-            <p style={{color: "red"}}>{error.name}</p>
+    setSuccess(true);
+    console.log("Successful", formData);
+  };
 
-            {/* email input field */}
-            <input 
-            type="email" 
-            name="email"
-            placeholder="Email" 
-            value={formData.email}
-            onChange={handleChange} 
-            required />
-            <p style={{color : "red"}}>{error.email}</p>
+  return (
+    <div className="register-container">
+      <form onSubmit={handleSubmit} className="register-form">
+        <h2>Register</h2>
+        {success && <p className="success">Registration Successful 🎉</p>}
 
-            {/* password input field */}
-            <input 
-            type="password" 
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange} 
-            required />
-            <p style={{color : "red"}}>{error.password}</p>
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+        <p className="error">{error.name}</p>
 
-            {/* repeat password input field */}
-            <input 
-            type="password" 
-            name="repeatPassword" 
-            placeholder="Repeat Password"
-            value={formData.repeatPassword} 
-            onChange={handleChange} 
-            required />
-            <p style={{color : "red"}}>{error.repeatPassword}</p>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+        <p className="error">{error.email}</p>
 
-            {/* Sign in button */}
-            <div className="btn">
-                <button type="submit">Sign In</button>
-            </div>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password (10 chars, 1 special)"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+        <p className="error">{error.password}</p>
 
-            </div>
-        </div>
-        </form>
-    )
+        <input
+          type="password"
+          name="repeatPassword"
+          placeholder="Repeat Password"
+          value={formData.repeatPassword}
+          onChange={handleChange}
+          required
+        />
+        <p className="error">{error.repeatPassword}</p>
+
+        <button type="submit" className="submit-btn">
+          Sign In
+        </button>
+      </form>
+    </div>
+  );
 }
 
 export default Register;
