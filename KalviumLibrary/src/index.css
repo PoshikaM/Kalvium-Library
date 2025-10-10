@@ -1,177 +1,221 @@
-*{
-  padding: 0px;
-  margin: 0px;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(248, 255, 211);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
-/* For Navbar Page */
-.Navbar{
+body {
+  background-color: #f9fafb;
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+}
+
+/* Navbar */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 15px;
+  background: linear-gradient(90deg, #002b5b, #00509d);
+  color: white;
+  padding: 14px 30px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.flex{
+.nav-left {
   display: flex;
   align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: white;
 }
 
-.flex img{
-  width: 50px;
-  height: 50px;
-}
-
-.Register{
+.nav-left img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   background-color: white;
-  color: red;
-  width: 120px;
-  padding: 7px;
+  padding: 4px;
+}
+
+.nav-left h1 {
+  font-size: 22px;
   font-weight: 600;
-  border: 3px solid black;
-}
-/* For Navbar Page */
-
-/* For Main Page */
-.Search{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  letter-spacing: 0.5px;
 }
 
-.Search input{
-  width: 400px;
-  height: 25px;
-  text-align: center;
-  box-shadow: 2px 2px 8px #888888;
-  margin-top: 30px;
+.register-btn {
+  background: linear-gradient(90deg, #00a8e8, #0077b6);
+  color: white;
+  font-weight: 600;
+  padding: 9px 20px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.searched{
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  align-items: center;
-  justify-content: space-around;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
+.register-btn:hover {
+  background: linear-gradient(90deg, #0096c7, #005f99);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-.searched img{
-  height: 150px;
-}
-
-.grid{
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  align-items: center;
-  justify-content: space-around;
-  text-align: center;
-  row-gap: 50px;
-}
-
-.content{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image{
-  height: 150px;
-}
-/* For Main Page */
-
-/* For Register Page */
-.inputs{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Home Page */
+.home-container {
   padding: 30px;
-  margin-top: 50px;
-}
-
-.inputs input{
-  margin-top: 20px;
-  height: 30px;
-  width: 250px;
-}
-
-.field{
-  border: 2px solid rgb(94, 0, 152);
-  padding: 20px;
-}
-
-.success{
-  color:black;
   text-align: center;
-  background-color: rgb(50, 50, 255);
-  padding: 10px;
 }
 
-.btn{
+.search-bar input {
+  width: 60%;
+  max-width: 450px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease;
+}
+
+.search-bar input:focus {
+  border-color: #0077b6;
+  box-shadow: 0 3px 12px rgba(0, 119, 182, 0.25);
+}
+
+.book-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  padding: 0 20px;
+}
+
+.book-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.book-card img {
+  height: 180px;
+  width: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.book-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.book-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Register Page */
+.register-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  align-items: center;
+  padding: 50px 20px;
 }
 
-.btn button{
-  padding: 5px 15px;
-  background-color: green;
-}
-/* For Register Page */
-
-/* Responsiveness */
-@media (max-width: 880px){
-  .Search input{
-    width: 250px;
-  }
+.register-form {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 350px;
 }
 
-@media(max-width: 800px){
-  .grid, .searched{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
+.register-form h2 {
+  text-align: center;
+  color: #003566;
+  margin-bottom: 20px;
 }
 
-@media(max-width: 670px){
-  .Search input{
-    width: 150px;
-  } 
+.register-form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+  border: 1.8px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.25s;
 }
 
-@media(max-width: 600px){
-  .grid, .searched{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  h1{
-    font-size: 23px;
-  }
+.register-form input:focus {
+  border-color: #0077b6;
+  outline: none;
 }
 
-@media(max-width: 540px){
-  .flex img{
-    width: 40px;
-    height: 40px;
-  }
-  .Register{
-    width: 80px;
-    padding: 5px;
-  }
+.error {
+  color: red;
+  font-size: 12px;
+  height: 14px;
 }
 
-@media(max-width: 360px){
-  .Search input{
-    box-shadow: 2px 2px 8px #888888
+.success {
+  background: linear-gradient(90deg, #0077b6, #00a8e8);
+  color: white;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, #0077b6, #00a8e8);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(90deg, #005f99, #0096c7);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .register-form {
+    width: 90%;
   }
-  .grid{
-    margin-top: 20px;
+
+  .search-bar input {
+    width: 90%;
   }
-  .Navbar{
-    padding: 5px;
+
+  .navbar h1 {
+    font-size: 18px;
+  }
+
+  .navbar {
+    padding: 10px 15px;
   }
 }

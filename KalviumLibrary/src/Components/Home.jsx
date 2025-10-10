@@ -1,82 +1,61 @@
 import { useEffect, useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 
-function Home(){
+function Home() {
+  const [book, setBook] = useState([]);
+  const [search, setSearch] = useState([]);
 
-    // assigning the API Data in this
-    const [book, setBook] = useState([])
-
-    // assigning the searched input Data in this
-    const [search, setSearch] = useState([])
-
-    // Fetching API
-    useEffect(() => {
-        axios.get("https://reactnd-books-api.udacity.com/books",{headers : { 'Authorization': 'whatever-you-want' }})
-
-        // store and set data
-        .then(res => {
-            const output = res.data.books
-            setBook(output)
-            // console.log(output)
-        })
-
-        // If error is there catch it
-        .catch(err => {
-            if(err.res.status === 404){
-                console.log("error")
-            }
-        })
-    },[])
-
-    // to handle the search input and set the searched item
-    const handleChange = (e) => {
-        const input = e.target.value.toLowerCase();
-        
-        if(input.trim() === ''){
-            setSearch([])
-        } else {
-            const searchedName = book.filter(item => item.title.toLowerCase().includes(input))
-            setSearch(searchedName)
+  useEffect(() => {
+    axios
+      .get("https://reactnd-books-api.udacity.com/books", {
+        headers: { Authorization: "whatever-you-want" },
+      })
+      .then((res) => {
+        const output = res.data.books;
+        setBook(output);
+      })
+      .catch((err) => {
+        if (err.response?.status === 404) {
+          console.log("Error fetching data");
         }
+      });
+  }, []);
+
+  const handleChange = (e) => {
+    const input = e.target.value.toLowerCase();
+    if (input.trim() === "") {
+      setSearch([]);
+    } else {
+      const searchedName = book.filter((item) =>
+        item.title.toLowerCase().includes(input)
+      );
+      setSearch(searchedName);
     }
+  };
 
-    return(
-        <div>
-            <div className="Search">
-                <div>
-                <input type="text" placeholder="Search Books" onChange={handleChange} />
+  const displayBooks = search.length > 0 ? search : book;
 
-                {/* to show the searched items */}
-                <div className="searched">
-                {
-                    search.map(item => (
-                        <div key={item.id}>
-                            <img src={item.imageLinks.smallThumbnail} alt="" />
-                            <p>{item.title}</p>
-                        </div>
-                    ))
-                }
-                </div>
-                </div>
-            </div>
+  return (
+    <div className="home-container">
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="🔍 Search for a book..."
+          onChange={handleChange}
+        />
+      </div>
 
-            {/* to show the fetched data */}
-            <div className="grid">
-            {
-                book.map(function(element, index){
-                    return(
-                        <div className="content" key={index}>
-                            <div>
-                                <img className="image" src={element.imageLinks.smallThumbnail} alt="" />
-                                <p>{element.title}</p>
-                            </div>
-                        </div>
-                    )
-                })
-            }
-            </div>
-        </div>
-    )
+      <div className="book-grid">
+        {displayBooks.map((item) => (
+          <div className="book-card" key={item.id}>
+            <img src={item.imageLinks.smallThumbnail} alt={item.title} />
+            <h3>{item.title}</h3>
+            <p>{item.authors?.join(", ")}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default Home;
