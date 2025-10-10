@@ -201,6 +201,67 @@ body {
   transform: translateY(-2px);
 }
 
+/* 404 Page Styling */
+.notfound-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.notfound-container h1 {
+  font-size: 100px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #002b5b, #00509d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+.notfound-container p {
+  font-size: 22px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.home-btn {
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #00a8e8, #0077b6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+  background: linear-gradient(90deg, #0096c7, #005f99);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .notfound-container h1 {
+    font-size: 70px;
+  }
+
+  .notfound-container p {
+    font-size: 18px;
+  }
+
+  .home-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+
 /* Responsive */
 @media (max-width: 600px) {
   .register-form {

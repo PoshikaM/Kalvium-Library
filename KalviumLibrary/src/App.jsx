@@ -3,6 +3,7 @@ import './App.css'
 import Home from './Components/Home'
 import Navbar from './Components/Navbar'
 import Register from './Components/Register'
+import NotFound from './Components/NotFound'
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Home/>} />
         <Route exact path='/Register' element={<Register/>} />
-        <Route exact path='*' element={<h1>404 Error Page not Found</h1>} />
+        <Route exact path='*' element={<NotFound/>} />
       </Routes>
     </div>
   )
