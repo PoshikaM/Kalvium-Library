@@ -1,8 +1,8 @@
 # 📚 Kalvium Library
 
-Kalvium Library is a simple React-based project that fetches and showcases books fetched from an external API. It provides a smooth way to explore books, and also includes a search option to quickly find what they’re looking for.
+Kalvium Library is a simple **React-based project** that fetches and showcases books fetched from an **external API 🌐**. It provides a smooth way to explore books 📖✨, and also includes a search option 🔍 to quickly find what they’re looking for.
 
-This project also includes a registration page where user details are collected.
+This project also includes a registration page 📝🧑‍💻 where user details are collected.
 
 ---
 
@@ -25,10 +25,10 @@ It reflects my initial steps in learning how to integrate APIs, manage state, an
 
 ## 🛠️ Tech Stack
 
-- **React** – Component-based UI library  
-- **JavaScript (ES6+)** – Logic and interactivity  
-- **CSS** – Styling and layout  
-- **External Books API** – Source of book data
+- **React** – Component-based UI library ⚛️
+- **JavaScript (ES6+)** – Logic and interactivity 💻
+- **CSS** – Styling and layout🎨
+- **External Books API** – Source of book data 🌐
 
 ---
 
@@ -39,7 +39,7 @@ Follow these steps to run the project locally:
 1. **Clone the repository**  
    ```bash
    git clone https://github.com/PoshikaM/Kalvium-Library
-   cd kalvium-library
+   cd kalviumlibrary
    ```
 2. **Install dependencies**
    ```bash
@@ -47,7 +47,7 @@ Follow these steps to run the project locally:
    ```
 3. **Start the development server**
    ```bash
-   npm start
+   npm run dev
    ```
 4. **Open your browser and visit:**
    ```bash
@@ -56,14 +56,14 @@ Follow these steps to run the project locally:
 
 ## 🎯 Learnings
 
-- Fetching and handling data from an external API
+- 📡 Fetching and handling data from an external API
 
-- Implementing search functionality
+- 🔎 Implementing search functionality
 
-- Using React hooks like useState and useEffect
+- ⚛️ Using React hooks like useState and useEffect
 
-- Managing forms and user input
+- 📝 Managing forms and user input
 
 ## 🌐 Deployed Link
 
-👉 Click the link to explore the [**Kalvium Library**](https://kalvium-library.netlify.app/)
+👉 Click the link to explore the [**Kalvium Library**](https://kalvium-library-site.vercel.app/)
